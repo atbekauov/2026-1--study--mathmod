@@ -1,5 +1,5 @@
 xFILES = $(patsubst %.md, %.docx, $(wildcard *.md))
-FILES += $(patsubst %.md, %.pdf, $(wildcard *.md))
+FILES = $(xFILES) $(patsubst %.md, %.pdf, $(wildcard *.md))
 
 FILTERS =
 OPTIONS =
@@ -34,3 +34,5 @@ clean:
 	-rm $(FILES) *~
 
 cleanall: clean
+
+.PHONY: all docx clean cleanall
